@@ -1,79 +1,79 @@
 ## before
 ```js
 <script type="text/babel">
-    const App = () => {
-      const [num1, setNum1] = React.useState("");
-      const [num2, setNum2] = React.useState("");
-      const [index, setIndex] = React.useState("");
-      const [result, setResult] = React.useState("");
-      
-      const handleValue = (e) => {
-        return e.target.name === "num1"
-          ? setNum1(e.currentTarget.value)
-          : setNum2(e.currentTarget.value);
-      };
+	const App = () => {
+		const [num1, setNum1] = React.useState("");
+		const [num2, setNum2] = React.useState("");
+		const [index, setIndex] = React.useState("");
+		const [result, setResult] = React.useState("");
+		
+		const handleValue = (e) => {
+			return e.target.name === "num1"
+				? setNum1(e.currentTarget.value)
+				: setNum2(e.currentTarget.value);
+		};
 
-      const handleSelect = (e) => {
-        setIndex(e.currentTarget.value);
-      };
+		const handleSelect = (e) => {
+			setIndex(e.currentTarget.value);
+		};
 
-      const handleResult = () => {
-        const n1 = parseInt(num1);
-        const n2 = parseInt(num2);
-        let res = 0;
-        switch (index) {
-          case "+":
-            res = n1 + n2;
-            break;
-          case "-":
-            res = n1 - n2;
-            break;
-          case "*":
-            res = n1 * n2;
-            break;
-          case "/":
-            res = n1 / n2;
-            break;
-          default:
-            res = 0;
-        }
-        setResult(res);
-      };
-      return (
-        <div className="container">
-          <h1>🦖 Calculator 🦖</h1>
-          <input
-            type="number"
-            placeholder="number"
-            name="num1"
-            value={num1}
-            onChange={handleValue}
-          />
-          <input
-            type="number"
-            placeholder="number"
-            name="num2"
-            value={num2}
-            onChange={handleValue}
-          />
+		const handleResult = () => {
+			const n1 = parseInt(num1);
+			const n2 = parseInt(num2);
+			let res = 0;
+			switch (index) {
+				case "+":
+					res = n1 + n2;
+					break;
+				case "-":
+					res = n1 - n2;
+					break;
+				case "*":
+					res = n1 * n2;
+					break;
+				case "/":
+					res = n1 / n2;
+					break;
+				default:
+					res = 0;
+			}
+			setResult(res);
+		};
+		return (
+			<div className="container">
+				<h1>🦖 Calculator 🦖</h1>
+				<input
+					type="number"
+					placeholder="number"
+					name="num1"
+					value={num1}
+					onChange={handleValue}
+				/>
+				<input
+					type="number"
+					placeholder="number"
+					name="num2"
+					value={num2}
+					onChange={handleValue}
+				/>
 
-          <select value={index} onChange={handleSelect}>
-            <option value="1">👇🏻Select Operation</option>
-            <option value="+">더하기</option>
-            <option value="-">빼기</option>
-            <option value="/">나누기</option>
-            <option value="*">곱하기</option>
-          </select>
-          <button type="button" onClick={handleResult}>
-            계산하기
-          </button>
-          <h2>🦖결과 : {result}</h2>
-        </div>
-      );
-    };
-    const root = document.getElementById("root");
-    ReactDOM.render(<App />, root);
-  </script>
+				<select value={index} onChange={handleSelect}>
+					<option value="1">👇🏻Select Operation</option>
+					<option value="+">더하기</option>
+					<option value="-">빼기</option>
+					<option value="/">나누기</option>
+					<option value="*">곱하기</option>
+				</select>
+				<button type="button" onClick={handleResult}>
+					계산하기
+				</button>
+				<h2>🦖결과 : {result}</h2>
+			</div>
+		);
+	};
+	const root = document.getElementById("root");
+	ReactDOM.render(<App />, root);
+</script>
 ```
 ## after
 ```js
